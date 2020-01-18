@@ -49,7 +49,8 @@ export class EmpleadoComponent implements OnInit {
       )
   
     // display form values on success
-    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registroForm.value, null, 4));
-}
+    console.log(this.registroForm.value)
+      alert("Registro correcto")
+  }
 
 }

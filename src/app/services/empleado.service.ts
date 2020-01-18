@@ -12,7 +12,7 @@ export class EmpleadoService {
     }
  
     getEmpleados(): Observable<any> {
-        return this._http.get(this.url + 'empleados');
+        return this._http.get(this.url + 'empleado');
     }
     getEmpleado(Usuario_id): Observable<any> {
         return this._http.get(this.url + 'empleado/' + Usuario_id);
@@ -29,6 +29,6 @@ export class EmpleadoService {
             skill: _Empleado.skill
         });
         let headers = new HttpHeaders().set('Content-Type', 'application/json');
-        return this._http.post(this.url + 'empleado', params, { headers: headers });
+        return this._http.post(this.url + '/empleado', params, { headers: headers });
     }
 }
