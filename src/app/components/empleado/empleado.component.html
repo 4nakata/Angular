@@ -1,0 +1,92 @@
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col-12 mt-5">
+      <mat-card>
+        <form [formGroup]="registroForm" (ngSubmit)="onSubmit()">
+          <mat-card-header>
+            <mat-card-title class="text-primary">Crear Empleado</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <div class="m-3">
+              <div class="row">
+                <div class="col-md-4 sm-12">
+                  <label for="">Nombre</label>
+                  <input type="text" formControlName="nombre" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.nombre.errors }">
+                  <div *ngIf="submitted && f.nombre.errors" class="invalid-feedback">
+                    <div *ngIf="f.nombre.errors.required">Nombre es requerido </div>
+                  </div>
+                </div>
+                <div class="col-md-4 col-sm-12">
+                  <label for="">Primer Apellido </label>
+                  <input type="text" formControlName="primerApellido" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.primerApellido.errors }">
+                  <div *ngIf="submitted && f.primerApellido.errors" class="invalid-feedback">
+                    <div *ngIf="f.primerApellido.errors.required">Primer Apellido es requerido </div>
+                  </div>
+                </div>
+                <div class="col-md-4 col-sm-12">
+                  <label for="">Segundo Apellido</label>
+                  <input type="text" formControlName="segundoApellido" class="form-control"
+                  [ngClass]="{ 'is-invalid': submitted && f.segundoApellido.errors }">
+                <div *ngIf="submitted && f.segundoApellido.errors" class="invalid-feedback">
+                  <div *ngIf="f.segundoApellido.errors.required">Segundo Apellido es requerido </div>
+                </div>
+                </div>
+              </div>
+              <br>
+              <div class="row">
+                <div class="col-md-4 sm-12">
+                  <label for="">Fecha Nacimiento</label>
+                  <input type="date" formControlName="fechaNacimiento" class="form-control"
+                  [ngClass]="{ 'is-invalid': submitted && f.fechaNacimiento.errors }">
+                <div *ngIf="submitted && f.fechaNacimiento.errors" class="invalid-feedback">
+                  <div *ngIf="f.fechaNacimiento.errors.required">Fecha Nacimiento es requerido </div>
+                </div>
+                </div>
+                <div class="col-md-4 col-sm-12">
+                  <label for="">Correo Electronico </label>
+                  <input type="email" formControlName="correoElectronico" class="form-control"
+                  [ngClass]="{ 'is-invalid': submitted && f.correoElectronico.errors }">
+                <div *ngIf="submitted && f.correoElectronico.errors" class="invalid-feedback">
+                  <div *ngIf="f.correoElectronico.errors.required">Correo Electronico es requerido </div>
+                  <div *ngIf="f.correoElectronico.errors.email">No es un correo valido</div>
+                </div>
+                </div>
+                <div class="col-md-4 col-sm-12">
+                  <label for="">Puesto</label>
+                  <input type="text" formControlName="puesto" class="form-control"
+                  [ngClass]="{ 'is-invalid': submitted && f.puesto.errors }">
+                <div *ngIf="submitted && f.puesto.errors" class="invalid-feedback">
+                  <div *ngIf="f.puesto.errors.required">Puesto es requerido </div>
+                </div>
+                </div>
+              </div>
+              <br>
+              <div class="row">
+                <div class="col-12">
+                  <label for="">¿Cuales son tu(s) skill(s)?</label>
+                  <tag-input [ngClass]="{ 'is-invalid': submitted && f.skill.errors }" 
+                            formControlName="skill"
+                            theme='bootstrap' 
+                            secondaryPlaceholder='Ingresa una skill' 
+                            placeholder = 'Puedes ingresar otra skill'
+                            ></tag-input>               
+                  <div *ngIf="submitted && f.skill.errors" class="invalid-feedback">
+                    <div *ngIf="f.skill.errors.required">Skill es requerido </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </mat-card-content>
+          <mat-card-actions>
+            <div class="text-right">
+              <button type="reset" class="btn btn-danger mr-1">Limpiar</button>
+              <button class="btn btn-primary">Crear</button>
+            </div>
+          </mat-card-actions>
+        </form>
+      </mat-card>
+    </div>
+  </div>
+</div>
